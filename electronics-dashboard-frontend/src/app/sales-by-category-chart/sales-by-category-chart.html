@@ -1,0 +1,13 @@
+<p>sales-by-category-chart works!</p>
+<div class="category-chart">
+  <h3>Sales by Category</h3>
+  <div class="bars">
+    <div *ngFor="let cat of categories; let i = index" class="bar-row">
+      <span class="label">{{ cat }}</span>
+      <div class="bar-bg">
+        <div class="bar" [style.width.%]="(sales[i] / 8000) * 100"></div>
+      </div>
+      <span class="value">${{ sales[i] | number:'1.0-0' }}</span>
+    </div>
+  </div>
+</div>

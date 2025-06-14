@@ -1,0 +1,31 @@
+<p>sales-by-region-chart works!</p>
+<div class="region-chart">
+  <h3>Sales by Region</h3>
+  <div class="pie-chart">
+    <svg width="120" height="120" viewBox="0 0 120 120">
+      <ng-container *ngFor="let region of regions; let i = index">
+        <circle
+          r="50"
+          cx="60"
+          cy="60"
+          [attr.stroke]="region.color"
+          stroke-width="20"
+          [attr.stroke-dasharray]="getStrokeDasharray(region.percent)"
+          [attr.stroke-dashoffset]="getStrokeDashoffset(i)"
+          fill="none"
+          stroke-linecap="round"
+        />
+      </ng-container>
+    </svg>
+    <div class="pie-center">
+      <span class="main">100%</span>
+    </div>
+  </div>
+  <div class="region-legend">
+    <div *ngFor="let region of regions" class="legend-row">
+      <span class="color-dot" [style.background]="region.color"></span>
+      <span class="label">{{ region.name }}</span>
+      <span class="percent">{{ region.percent }}%</span>
+    </div>
+  </div>
+</div>

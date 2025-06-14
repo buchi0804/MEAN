@@ -1,0 +1,25 @@
+<div class="add-sale-form">
+  <h3>Add Sale</h3>
+  <form (ngSubmit)="submit()" #saleForm="ngForm">
+    <div class="form-row">
+      <input type="text" placeholder="Product" [(ngModel)]="sale.product" name="product" required />
+      <select [(ngModel)]="sale.category" name="category" required>
+        <option value="" disabled selected>Category</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <input type="text" placeholder="Customer" [(ngModel)]="sale.customer" name="customer" required />
+      <select [(ngModel)]="sale.region" name="region" required>
+        <option value="" disabled selected>Region</option>
+        <option *ngFor="let reg of regions" [value]="reg">{{ reg }}</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <input type="number" placeholder="Quantity" [(ngModel)]="sale.quantity" name="quantity" min="1" required />
+      <input type="number" placeholder="Amount" [(ngModel)]="sale.amount" name="amount" min="0" required />
+      <input type="date" [(ngModel)]="sale.date" name="date" required />
+    </div>
+    <button type="submit" [disabled]="!saleForm.form.valid">Add Sale</button>
+  </form>
+</div>

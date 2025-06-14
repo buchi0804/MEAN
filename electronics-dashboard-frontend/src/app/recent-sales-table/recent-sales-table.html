@@ -1,0 +1,28 @@
+<p>recent-sales-table works!</p>
+<div class="recent-sales-table">
+  <h3>Recent Sales</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Customer</th>
+        <th>Region</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <td>{{ sale.product }}</td>
+        <td>{{ sale.category }}</td>
+        <td>{{ sale.customer }}</td>
+        <td>{{ sale.region }}</td>
+        <td>{{ sale.quantity }}</td>
+        <td>${{ sale.amount | number:'1.2-2' }}</td>
+        <td>{{ sale.date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
